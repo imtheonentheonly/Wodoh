@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    background-color: #0f172a;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(148, 163, 184, 0.4);
+  }
+
+  :focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-md border border-border/60;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border shadow-card rounded-2xl;
+  }
+
+  .stat-card {
+    @apply glass-card p-5 transition-all duration-300 hover:border-brand-accent/40 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-brand-accent active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2.5 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-card hover:border-border-strong active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-status-danger/90 px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-status-danger active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-white/70 transition-all duration-200 hover:bg-white/5 hover:text-white;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-border bg-background-secondary/60 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-all duration-200 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .badge-danger {
+    @apply badge bg-status-danger/15 text-status-danger border border-status-danger/25;
+  }
+
+  .badge-warning {
+    @apply badge bg-status-warning/15 text-status-warning border border-status-warning/25;
+  }
+
+  .badge-success {
+    @apply badge bg-status-success/15 text-status-success border border-status-success/25;
+  }
+
+  .badge-info {
+    @apply badge bg-brand-accent/15 text-brand-accent border border-brand-accent/25;
+  }
+
+  .badge-neutral {
+    @apply badge bg-white/10 text-white/60 border border-white/10;
+  }
+
+  .live-dot {
+    @apply relative inline-flex h-2 w-2 rounded-full bg-status-danger;
+  }
+
+  .live-dot::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-status-danger animate-pulse-ring;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-white/60 transition-all duration-200 hover:bg-white/5 hover:text-white;
+  }
+
+  .sidebar-link-active {
+    @apply sidebar-link bg-gradient-to-l from-brand-primary/20 to-brand-primary/5 text-white border border-brand-accent/25 shadow-glow;
+  }
+
+  .table-row {
+    @apply border-b border-border-subtle transition-colors duration-150 hover:bg-white/[0.03];
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-white/5 rounded-lg;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.08) 40px,
+      rgba(255, 255, 255, 0.03) 80px
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+}
