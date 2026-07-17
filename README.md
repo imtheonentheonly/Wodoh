@@ -44,3 +44,5 @@ React + Vite + TypeScript + Tailwind CSS + React Router + Framer Motion + Zustan
 - `src/store/` — Zustand stores (`opsStore`, `customerStore`) — cross-wired so the customer transfer simulation pushes live state into the ops dashboard
 - `src/components/` — shared UI, layout, and chart components
 - `src/data/mockData.ts` — all fictional seed data
+## Demo Video
+https://youtu.be/Zc_TvQFU-tY
