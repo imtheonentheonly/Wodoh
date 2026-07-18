@@ -46,13 +46,4 @@ React + Vite + TypeScript + Tailwind CSS + React Router + Framer Motion + Zustan
 - `src/data/mockData.ts` — all fictional seed data
 ## Demo Video
 https://youtu.be/Zc_TvQFU-tY
-## Screenshots
 
-### Employee Dashboard
-![Dashboard]
-
-### Customer App
-![Customer]
-
-### AI Investigation
-![AI]
